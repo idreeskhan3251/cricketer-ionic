@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [text]="'cancel'" (click)="dismiss()" defaultHref="players"></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="">
+  <form [formGroup]="addPlayerForm">
+    <ion-grid>
+      <ion-row color="justify-content-center">
+        <ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
+          <div class="ion-text-center">
+            <h3>Add New Player</h3>
+          </div>
+          <div class="ion-padding">
+            <ion-item>
+              <ion-input formControlName="name" type="text" placeholder="Name"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="ibn" type="text" placeholder="Player Number"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="skill" type="text" placeholder="skill"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="image_url" type="text" placeholder="image url">
+              </ion-input>
+            </ion-item>
+
+          </div>
+          <div class="ion-padding">
+            <ion-button size="large" [disabled]="addPlayerForm.invalid" (click)="save()" color="primary" type="submit"
+              expand="block">SAVE !
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
