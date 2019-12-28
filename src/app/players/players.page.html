@@ -10,26 +10,29 @@
   <div *ngIf="!loading">
 
     <ion-list>
-      <ion-item *ngFor="let book of players">
+      <ion-item *ngFor="let player of players">
         <ion-thumbnail slot="start">
           <ion-img *ngIf="player.image_url && player.image_url!='null'" [src]="player.image_url">
           </ion-img>
-          <ion-img *ngIf="!player.image_url ||  player.image_url=='null' " [src]="'assets/icon/player.JPEG'">
+          <ion-img *ngIf="!player.image_url ||  player.image_url=='null' " [src]="'assets/icon/player.png'">
           </ion-img>
         </ion-thumbnail>
         <ion-label>{{player.name}}</ion-label>
-        <ion-icon name="create" slot="end"></ion-icon>
-        <ion-icon name="trash" slot="end"></ion-icon>
+        <ion-button (click)="openEditPopup(player)" fill="clear">
+          <ion-icon name="create" slot="end"></ion-icon>
+        </ion-button>
+        <ion-button   f ill="clear" (click)="delete(player)">
+          <ion-icon name="trash" slot="end"></ion-icon>
+        </ion-button>
+        
       </ion-item>
     </ion-list>
   </div>
+  
 
   <div *ngIf="loading">
 
-
     <ion-list>
-
-
       <ion-item *ngFor="let item of skeletonlist">
         <ion-thumbnail slot="start">
           <ion-skeleton-text animated></ion-skeleton-text>

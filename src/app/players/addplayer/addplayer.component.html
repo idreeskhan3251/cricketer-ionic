@@ -13,7 +13,8 @@
       <ion-row color="justify-content-center">
         <ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
           <div class="ion-text-center">
-            <h3>Add New Player</h3>
+            <h3 *ngIf="!player">Add New Player</h3>
+            <h3 *ngIf="player">Edit Player</h3>
           </div>
           <div class="ion-padding">
             <ion-item>
@@ -33,7 +34,8 @@
           </div>
           <div class="ion-padding">
             <ion-button size="large" [disabled]="addPlayerForm.invalid" (click)="save()" color="primary" type="submit"
-              expand="block">SAVE !
+              expand="block">SAVE ! &nbsp;<ion-spinner *ngIf="loading"></ion-spinner>
+
             </ion-button>
           </div>
         </ion-col>
